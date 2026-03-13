@@ -9,6 +9,7 @@ import { Color } from '../enums/Color';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+
   companyLog: string = 'Румтибет';
   constructor() {
     this.saveDateLastVisit();
@@ -30,4 +31,5 @@ export class AppComponent {
     count++;
     localStorage.setItem('visirCount', count.toString());
   }
+  
 }

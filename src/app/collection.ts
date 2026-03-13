@@ -1,4 +1,5 @@
 export class Collection<T> {
+  
   private items: T[] = [];
 
   constructor(initialData: T[] = []) {
@@ -30,5 +31,5 @@ export class Collection<T> {
   }
 }
 
-const numCollection = new Collection([1, 2, 3, 4]);
-const strCollection = new Collection(['mountain', 'forest', 'river']);
+const numCollection:Collection<number> = new Collection<number>([1, 2, 3, 4]);
+const strCollection:Collection<string>  = new Collection<string>(['mountain', 'forest', 'river']);
