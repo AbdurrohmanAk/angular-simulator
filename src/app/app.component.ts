@@ -23,13 +23,13 @@ export class AppComponent {
 
   saveDateLastVisit(): void {
     const currentDate: string = new Date().toISOString();
-    localStorage.setItem('last-Visit', currentDate);
+    localStorage.setItem('last-visit', currentDate);
   }
 
   saveVisitCount(): void {
     let count: number = Number(localStorage.getItem('visit-Count')) || 0;
     count++;
-    localStorage.setItem('visir-Count', count.toString());
+    localStorage.setItem('visit-count', count.toString());
   }
 
 }
