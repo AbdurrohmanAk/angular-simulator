@@ -10,26 +10,26 @@ import { Color } from '../enums/Color';
 })
 export class AppComponent {
 
-  companyLog: string = 'Румтибет';
+  companyTitle: string = 'Румтибет';
   constructor() {
     this.saveDateLastVisit();
     this.saveVisitCount();
   }
 
   isPrimaryColor(color: Color): boolean {
-    const isColorArr = [Color.RED, Color.GREEN, Color.BLUE];
-    return isColorArr.includes(color);
+    const primaryColors: Color[] = [Color.RED, Color.GREEN, Color.BLUE];
+    return primaryColors.includes(color);
   }
 
   saveDateLastVisit(): void {
-    const currenDate = new Date().toISOString();
-    localStorage.setItem('lastVisit', currenDate);
+    const currentDate: string = new Date().toISOString();
+    localStorage.setItem('last-Visit', currentDate);
   }
 
   saveVisitCount(): void {
-    let count = Number(localStorage.getItem('visitCount')) || 0;
+    let count: number = Number(localStorage.getItem('visit-Count')) || 0;
     count++;
-    localStorage.setItem('visirCount', count.toString());
+    localStorage.setItem('visir-Count', count.toString());
   }
-  
+
 }

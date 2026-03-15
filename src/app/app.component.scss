@@ -1,8 +1,13 @@
-.header {
+.wrapper-mountain {
   width: 1920px;
   height: 985px;
+  background-image: url("/images/background-mountains.png");
+}
+
+.header {
+  width: 100%px;
+  height: 120px;
   position: relative;
-  background-image: url(/images/background-mountains.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -59,10 +64,10 @@
   background-color: var(--basic-color);
   border: none;
   border-radius: 4px;
-  margin-left: 26px;
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
+  margin-left: 130px;
 }
 
 .main-title {
@@ -144,4 +149,5 @@
   margin-bottom: 28px;
   cursor: pointer;
 }
+
 
