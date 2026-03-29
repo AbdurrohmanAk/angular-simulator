@@ -1,9 +1,10 @@
 @if (isLoading) {
   <div class="loader">
+    Загрузка...
   </div>
-} @else {
+  } @else {
   <div class="wrapper-mountain">
-  <header class="header">
+    <header class="header">
     <div class="main-header">
       <div class="container-header">
         <div class="logo-header">
@@ -21,16 +22,19 @@
             <a href="#" id="chapter-contacts">Контакты</a>
           </nav>
           <div class="extra-panel">
-            <button (click)="toggleView()">
+            <button (click)="showTimer = !showTimer">
               {{ showTimer ? 'Счетчик' : 'Таймер' }}
             </button>
-            @if (showTimer) {
+            @if (showTimer) {`
               <div>{{ currentDate }}</div>
             } @else {
               <div>
-                <button (click)="decrement()" [disabled]="counter === 0">-</button>
+                <button
+                id="btn-counter"
+                (click)="counter = counter > 0 ? counter - 1 : 0"
+                [disabled]="counter === 0">-</button>
                 {{ counter }}
-                <button (click)="increment()">+</button>
+                <button (click)="counter = counter + 1">+</button>
               </div>
             }
           </div>
@@ -52,8 +56,7 @@
           id="tour-location-select"
           class="portal-block"
           [(ngModel)]="selectedLocation"
-          name="location"
-          >
+          name="location">
             <option value="">Локация для тура</option>
             <option value="dombay">Домбай</option>
             <option value="arkhyz">Архыз</option>
@@ -66,8 +69,7 @@
           id="tour-date-select"
           class="portal-block"
           [(ngModel)]="selectedDate"
-          name="date"
-          >
+          name="date">
             <option value="">Дата похода</option>
             <option value="2026-06">Июнь 2026</option>
           </select>
@@ -78,8 +80,7 @@
           id="tour-participants-select"
           class="portal-block"
           [(ngModel)]="selectedParticipants"
-          name="participants"
-          >
+          name="participants">
             <option value="">Участники</option>
             <option value="1">Участники</option>
             <option value="2">Участники</option>
@@ -91,7 +92,7 @@
         class="search-program-btn"
         id="search-program-btn"
         [disabled]="!selectedLocation || !selectedDate || !selectedParticipants">
-          Найти программу
+        Найти программу
         </button>
       </form>
       <div
@@ -137,7 +138,8 @@
         @for (program of programs; track program.id) {
           <div class="program-block">
             <div class="program-icon">
-              <img src="/images/{{ program.icon }}.png"
+              <img
+              src="/images/{{ program.icon }}.png"
               alt=""
               width="50px"
               height="50px"
@@ -153,8 +155,8 @@
       <button id="program-price-btn">Стоимость программ</button>
   </div>
     <div class="icon">
-      <img src="/images/mountain-tea.png" alt="">
-      <img src="/images/mountain-man.png" alt="">
+      <img src="/images/gorge-mountains.png" alt="">
+      <img src="/images/canyon.png" alt="">
       <img src="/images/mountain-snowmobile.png" alt="">
       <img src="/images/mountain-red-river.png" alt="">
     </div>

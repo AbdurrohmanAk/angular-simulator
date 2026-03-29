@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import './training';
 import { IProgram } from '../interfaces/IProgram';
 import { FormsModule } from '@angular/forms';
-import { RouterLinkActive } from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -13,18 +12,17 @@ import { RouterLinkActive } from "@angular/router";
 })
 export class AppComponent {
 
-  public readonly companyTitle: string = 'Румтибет';
+  readonly companyTitle: string = 'Румтибет';
+  currentDate: string = '';
+  counter: number = 0;
+  showTimer: boolean = true;
+  liveText: string = '';
+  isLoading: boolean = true;
+  selectedLocation: string = '';
+  selectedDate: string = '';
+  selectedParticipants: string = '';
 
-  public currentDate: string = '';
-  public counter: number = 0;
-  public showTimer: boolean = true;
-  public liveText: string = '';
-  public isLoading: boolean = true;
-  public selectedLocation: string = '';
-  public selectedDate: string = '';
-  public selectedParticipants: string = '';
-
-  public programs: IProgram[] = [
+  programs: IProgram[] = [
     {
       id: 1,
       title: 'Опытный гид',
@@ -46,33 +44,17 @@ export class AppComponent {
     },
   ];
 
-    constructor() {
+  constructor() {
     this.saveDateLastVisit();
     this.saveVisitCount();
-  }
 
-  ngOnInit(): void {
     setTimeout(() => {
       this.isLoading = false;
     }, 2000);
 
     setInterval(() => {
-      this.currentDate = new Date().toLocaleString();
-    }, 1000);
-  }
-
-  increment(): void {
-    this.counter++;
-  }
-
-  decrement(): void {
-    if (this.counter > 0) {
-      this.counter--;
-    }
-  }
-
-  toggleView(): void {
-    this.showTimer = !this.showTimer;
+      this.isLoading = false;
+    }, 1000)
   }
 
   private saveDateLastVisit(): void {
