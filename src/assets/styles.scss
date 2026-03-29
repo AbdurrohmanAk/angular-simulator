@@ -5,6 +5,7 @@
   font-family: 'Nunito Sans';
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 :root {
@@ -16,7 +17,6 @@
 
 .container {
   width: 1180px;
-  margin: 0 auto;
 }
 
 .fs-14 {

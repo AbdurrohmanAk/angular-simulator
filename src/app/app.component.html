@@ -1,4 +1,8 @@
-<div class="wrapper-mountain">
+@if (isLoading) {
+  <div class="loader">
+  </div>
+} @else {
+  <div class="wrapper-mountain">
   <header class="header">
     <div class="main-header">
       <div class="container-header">
@@ -16,6 +20,20 @@
             <a href="#" id="chapter-blog">Блог</a>
             <a href="#" id="chapter-contacts">Контакты</a>
           </nav>
+          <div class="extra-panel">
+            <button (click)="toggleView()">
+              {{ showTimer ? 'Счетчик' : 'Таймер' }}
+            </button>
+            @if (showTimer) {
+              <div>{{ currentDate }}</div>
+            } @else {
+              <div>
+                <button (click)="decrement()" [disabled]="counter === 0">-</button>
+                {{ counter }}
+                <button (click)="increment()">+</button>
+              </div>
+            }
+          </div>
           <button id="btn-consultation">Консультация</button>
         </div>
       </div>
@@ -28,30 +46,122 @@
       с командой единомышленников
     </h1>
     <div class="design-tour">
-      <form class="tour-menu">
+      <form class="tour-menu" novalidate>
         <div class="menu-form-block">
-          <select id="tour-location-select" class="portal-block">
+          <select
+          id="tour-location-select"
+          class="portal-block"
+          [(ngModel)]="selectedLocation"
+          name="location"
+          >
             <option value="">Локация для тура</option>
+            <option value="dombay">Домбай</option>
+            <option value="arkhyz">Архыз</option>
+            <option value="elbrus">Эльбрус</option>
           </select>
           <span class="clue">выберите из списка</span>
         </div>
         <div class="menu-form-block">
-          <select id="tour-date-select" class="portal-block">
+          <select
+          id="tour-date-select"
+          class="portal-block"
+          [(ngModel)]="selectedDate"
+          name="date"
+          >
             <option value="">Дата похода</option>
+            <option value="2026-06">Июнь 2026</option>
           </select>
           <span class="clue">укажите дату</span>
         </div>
         <div class="menu-form-block">
-          <select id="tour-participants-select" class="portal-block">
+          <select
+          id="tour-participants-select"
+          class="portal-block"
+          [(ngModel)]="selectedParticipants"
+          name="participants"
+          >
             <option value="">Участники</option>
+            <option value="1">Участники</option>
+            <option value="2">Участники</option>
+            <option value="3">Участники</option>
           </select>
           <span class="clue">выберите из списка</span>
         </div>
-        <button class="search-program-btn" id="search-program-btn">
+        <button
+        class="search-program-btn"
+        id="search-program-btn"
+        [disabled]="!selectedLocation || !selectedDate || !selectedParticipants">
           Найти программу
         </button>
       </form>
+      <div
+      style="margin: 20px;">
+        <input
+        [(ngModel)]="liveText"
+        placeholder="Введите текст"
+        />
+        <span>{{ liveText }}</span>
+      </div>
     </div>
   </section>
 </div>
+
+<div class=" cap">
+  <div class="container loc-tour">
+    <div class="info-cap">
+      <img src="/images/snowy-mountains.png" alt="Снежная гора" class="snowy-mountain-icon">
+      <img src="/images/forest-tour.png" alt="Лес" class="forest-icon">
+    </div>
+    <div class="info-tour">
+      <p class="title-hike">о нашем походе</p>
+      <h2 class="study-tour">Исследуйте все горные <br> массивы мира вместе с нами</h2>
+      <span class="tour-history">Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад.
+         Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат <br>Вирджиния, взял одно из самых странных слов в Lorem Ipsum,
+         "consectetur"и занялся его поисками в классической латинской литературе.
+      </span>
+      <button id="btn-program">Программа тура</button>
+    </div>
+  </div>
+</div>
+
+<section class="info-best-program">
+<div class="content-best-program">
+  <div class="info-program-tour">
+    <p>наше предложение</p>
+    <h2>Лучшие программы для тебя</h2>
+    <span>Его корни уходят в один фрагмент классической латыни 45 года н.э.,
+       то есть более двух тысячелетий назад. Ричард МакКлинток,
+       профессор латыни из колледжа.
+      </span>
+      <div class="program-set-list">
+        @for (program of programs; track program.id) {
+          <div class="program-block">
+            <div class="program-icon">
+              <img src="/images/{{ program.icon }}.png"
+              alt=""
+              width="50px"
+              height="50px"
+              />
+            </div>
+            <div class="program-set-info">
+              <p class="title-program">{{ program.title }}</p>
+              <span class="description-program">{{ program.description }}</span>
+            </div>
+          </div>
+        }
+      </div>
+      <button id="program-price-btn">Стоимость программ</button>
+  </div>
+    <div class="icon">
+      <img src="/images/mountain-tea.png" alt="">
+      <img src="/images/mountain-man.png" alt="">
+      <img src="/images/mountain-snowmobile.png" alt="">
+      <img src="/images/mountain-red-river.png" alt="">
+    </div>
+</div>
+</section>
+}
+
+
+
 
