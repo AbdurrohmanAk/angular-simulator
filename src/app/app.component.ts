@@ -49,8 +49,9 @@ export class AppComponent {
     this.saveVisitCount();
 
     setInterval(() => {
+      this.currentDate = new Date().toLocaleString();
       this.isLoading = false;
-    }, 2000)
+    }, 1000)
   }
 
   private saveDateLastVisit(): void {
