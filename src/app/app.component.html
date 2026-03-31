@@ -30,10 +30,10 @@
             } @else {
               <div>
                 <button
-                id="btn-counter"
-                (click)="counter = counter > 0 ? counter - 1 : 0"
-                [disabled]="counter === 0">-</button>
-                {{ counter }}
+                  id="btn-counter"
+                  (click)="counter = counter > 0 ? counter - 1 : 0"
+                  [disabled]="counter === 0">-</button>
+                  {{ counter }}
                 <button (click)="counter = counter + 1">+</button>
               </div>
             }
@@ -53,10 +53,10 @@
       <form class="tour-menu" novalidate>
         <div class="menu-form-block">
           <select
-          id="tour-location-option"
-          class="portal-block"
-          [(ngModel)]="selectedLocation"
-          name="location">
+            id="tour-location-option"
+            class="portal-block"
+            [(ngModel)]="selectedLocation"
+            name="location">
             <option value="">Локация для тура</option>
             <option value="dombay">Домбай</option>
             <option value="arkhyz">Архыз</option>
@@ -66,10 +66,10 @@
         </div>
         <div class="menu-form-block">
           <select
-          id="tour-date-option"
-          class="portal-block"
-          [(ngModel)]="selectedDate"
-          name="date">
+            id="tour-date-option"
+            class="portal-block"
+            [(ngModel)]="selectedDate"
+            name="date">
             <option value="">Дата похода</option>
             <option value="2026-06">Июнь 2026</option>
           </select>
@@ -77,10 +77,10 @@
         </div>
         <div class="menu-form-block">
         <select
-        id="tour-participants-option"
-        class="portal-block"
-        [(ngModel)]="selectedParticipants"
-        name="participants">
+          id="tour-participants-option"
+          class="portal-block"
+          [(ngModel)]="selectedParticipants"
+          name="participants">
           <option value="">Участники</option>
           <option value="1">Участники</option>
           <option value="2">Участники</option>
@@ -89,24 +89,25 @@
           <span class="clue">выберите из списка</span>
         </div>
         <button
-        class="search-program-btn"
-        id="search-program-btn"
-        [disabled]="!selectedLocation || !selectedDate || !selectedParticipants">
+          class="search-program-btn"
+          id="search-program-btn"
+          [disabled]="!selectedLocation || !selectedDate || !selectedParticipants">
         Найти программу
         </button>
       </form>
       <div
       style="margin: 20px;">
         <input
-        [(ngModel)]="liveText"
-        placeholder="Введите текст"
+          [(ngModel)]="liveText"
+          placeholder="Введите текст"
         />
         <span>{{ liveText }}</span>
       </div>
     </div>
   </section>
 </div>
-<div class=" cap">
+}
+<div class="cap">
   <div class="container loc-tour">
     <div class="info-cap">
       <img src="/images/snowy-mountains.png" alt="Снежная гора" class="snowy-mountain-icon">
@@ -124,41 +125,55 @@
   </div>
 </div>
 <section class="info-best-program">
-<div class="content-best-program">
-  <div class="info-program-tour">
-    <p>наше предложение</p>
-    <h2>Лучшие программы для тебя</h2>
-    <span>Его корни уходят в один фрагмент классической латыни 45 года н.э.,
-       то есть более двух тысячелетий назад. Ричард МакКлинток,
-       профессор латыни из колледжа.
+  <div class="content-best-program">
+    <div class="info-program-tour">
+      <p>наше предложение</p>
+      <h2>Лучшие программы для тебя</h2>
+      <span>Его корни уходят в один фрагмент классической латыни 45 года н.э.,
+        то есть более двух тысячелетий назад. Ричард МакКлинток,
+        профессор латыни из колледжа.
       </span>
       <div class="program-set-list">
         @for (program of programs; track program.id) {
-          <div class="program-block">
-            <div class="program-icon">
-              <img
+        <div class="program-block">
+          <div class="program-icon">
+            <img
               [src]="'/images/'+ program.icon +'.png'"
-              alt=""
               width="50px"
               height="50px"
-              />
-            </div>
-            <div class="program-set-info">
-              <p class="title-program">{{ program.title }}</p>
-              <span class="description-program">{{ program.description }}</span>
-            </div>
+            />
           </div>
+          <div class="program-set-info">
+            <p class="title-program">{{ program.title }}</p>
+            <span class="description-program">{{ program.description }}</span>
+          </div>
+        </div>
         }
       </div>
       <button id="program-price-btn">Стоимость программ</button>
-  </div>
+    </div>
     <div class="icon">
       <img src="/images/gorge-mountains.png" alt="George">
       <img src="/images/canyon.png" alt="Canyon">
       <img src="/images/mountain-snowmobile.png" alt="Snowmobile">
       <img src="/images/mountain-red-river.png" alt="River">
     </div>
-</div>
+  </div>
 </section>
-}
+
+<section class="popular-destinations">
+  <p>по версии отдыхающих</p>
+  <h2>Популярные направления</h2>
+  <div class="block-directions">
+    <img src="/images/lake-mountains.png" alt="Lake">
+    <img src="/images/night-mountains.png" alt="Night">
+    <img src="/images/stretching-mountains.png" alt="Stretching">
+  </div>
+  <div class="rating-destinations">
+    <button id="btn-rating">
+      Рейтинг направлений
+    </button>
+  </div>
+</section>
+
 

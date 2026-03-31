@@ -50,8 +50,11 @@ export class AppComponent {
 
     setInterval(() => {
       this.currentDate = new Date().toLocaleString();
-      this.isLoading = false;
     }, 1000)
+
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
   }
 
   private saveDateLastVisit(): void {
