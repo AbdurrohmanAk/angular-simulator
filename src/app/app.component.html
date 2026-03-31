@@ -53,7 +53,7 @@
       <form class="tour-menu" novalidate>
         <div class="menu-form-block">
           <select
-          id="tour-location-select"
+          id="tour-location-option"
           class="portal-block"
           [(ngModel)]="selectedLocation"
           name="location">
@@ -66,7 +66,7 @@
         </div>
         <div class="menu-form-block">
           <select
-          id="tour-date-select"
+          id="tour-date-option"
           class="portal-block"
           [(ngModel)]="selectedDate"
           name="date">
@@ -76,16 +76,16 @@
           <span class="clue">укажите дату</span>
         </div>
         <div class="menu-form-block">
-          <select
-          id="tour-participants-select"
-          class="portal-block"
-          [(ngModel)]="selectedParticipants"
-          name="participants">
-            <option value="">Участники</option>
-            <option value="1">Участники</option>
-            <option value="2">Участники</option>
-            <option value="3">Участники</option>
-          </select>
+        <select
+        id="tour-participants-option"
+        class="portal-block"
+        [(ngModel)]="selectedParticipants"
+        name="participants">
+          <option value="">Участники</option>
+          <option value="1">Участники</option>
+          <option value="2">Участники</option>
+          <option value="3">Участники</option>
+        </select>
           <span class="clue">выберите из списка</span>
         </div>
         <button
@@ -106,7 +106,6 @@
     </div>
   </section>
 </div>
-
 <div class=" cap">
   <div class="container loc-tour">
     <div class="info-cap">
@@ -124,7 +123,6 @@
     </div>
   </div>
 </div>
-
 <section class="info-best-program">
 <div class="content-best-program">
   <div class="info-program-tour">
@@ -139,7 +137,7 @@
           <div class="program-block">
             <div class="program-icon">
               <img
-              src="/images/{{ program.icon }}.png"
+              [src]="'/images/'+ program.icon +'.png'"
               alt=""
               width="50px"
               height="50px"
@@ -155,15 +153,13 @@
       <button id="program-price-btn">Стоимость программ</button>
   </div>
     <div class="icon">
-      <img src="/images/gorge-mountains.png" alt="">
-      <img src="/images/canyon.png" alt="">
-      <img src="/images/mountain-snowmobile.png" alt="">
-      <img src="/images/mountain-red-river.png" alt="">
+      <img src="/images/gorge-mountains.png" alt="George">
+      <img src="/images/canyon.png" alt="Canyon">
+      <img src="/images/mountain-snowmobile.png" alt="Snowmobile">
+      <img src="/images/mountain-red-river.png" alt="River">
     </div>
 </div>
 </section>
 }
-
-
 
 

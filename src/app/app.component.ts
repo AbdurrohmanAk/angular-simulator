@@ -48,13 +48,9 @@ export class AppComponent {
     this.saveDateLastVisit();
     this.saveVisitCount();
 
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 2000);
-
     setInterval(() => {
       this.isLoading = false;
-    }, 1000)
+    }, 2000)
   }
 
   private saveDateLastVisit(): void {
