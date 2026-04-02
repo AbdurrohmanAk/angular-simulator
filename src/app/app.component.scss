@@ -322,7 +322,7 @@
   cursor: pointer;
 }
 
-.popular-destinations{
+.popular-destinations {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -349,10 +349,38 @@
   justify-content: center;
   gap: 20px;
   padding: 50px;
+  cursor: pointer;
+  object-fit: cover;
+
+  img {
+    transition: transform 0.3s ease;
+  }
+
+  img:hover {
+    transform: scale(1.1);
+  }
 }
 
 .rating-destinations {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 95px;
+}
+
+#btn-rating {
+width: 244;
+height: 52;
+opacity: 1;
+top: 3228px;
+left: 838px;
+gap: 10px;
+border-radius: 4px;
+padding-top: 16px;
+padding-right: 36px;
+padding-bottom: 16px;
+padding-left: 36px;
+background-color: var(--additional-color);
+color: var(--basic-color);
+cursor: pointer;
 }

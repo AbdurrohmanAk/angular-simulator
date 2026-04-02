@@ -46,7 +46,7 @@
   <section content-mountain>
     <h1 class="main-title">
       Насладись прогулкой в горах
-      <br />
+    <br/>
       с командой единомышленников
     </h1>
     <div class="design-tour">
@@ -92,11 +92,10 @@
           class="search-program-btn"
           id="search-program-btn"
           [disabled]="!selectedLocation || !selectedDate || !selectedParticipants">
-        Найти программу
+          Найти программу
         </button>
       </form>
-      <div
-      style="margin: 20px;">
+      <div>
         <input
           [(ngModel)]="liveText"
           placeholder="Введите текст"
@@ -129,12 +128,13 @@
     <div class="info-program-tour">
       <p>наше предложение</p>
       <h2>Лучшие программы для тебя</h2>
-      <span>Его корни уходят в один фрагмент классической латыни 45 года н.э.,
+      <span>
+        Его корни уходят в один фрагмент классической латыни 45 года н.э.,
         то есть более двух тысячелетий назад. Ричард МакКлинток,
         профессор латыни из колледжа.
       </span>
       <div class="program-set-list">
-        @for (program of programs; track program.id) {
+        @for (program of programs;track program.id) {
         <div class="program-block">
           <div class="program-icon">
             <img
@@ -148,7 +148,7 @@
             <span class="description-program">{{ program.description }}</span>
           </div>
         </div>
-        }
+      }
       </div>
       <button id="program-price-btn">Стоимость программ</button>
     </div>
@@ -165,9 +165,13 @@
   <p>по версии отдыхающих</p>
   <h2>Популярные направления</h2>
   <div class="block-directions">
-    <img src="/images/lake-mountains.png" alt="Lake">
-    <img src="/images/night-mountains.png" alt="Night">
-    <img src="/images/stretching-mountains.png" alt="Stretching">
+    <div>
+      <img src="/images/lake-mountains.png" alt="Lake">
+    </div>
+    <div><img src="/images/night-mountains.png" alt="Night">
+    </div>
+    <div><img src="/images/stretching-mountains.png" alt="Stretching">
+    </div>
   </div>
   <div class="rating-destinations">
     <button id="btn-rating">
