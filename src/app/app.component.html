@@ -1,16 +1,10 @@
-@if (isLoading) {
-  <div class="loader">
-    Загрузка...
-  </div>
-  } @else {
   <div class="wrapper-mountain">
     <header class="header">
     <div class="main-header">
       <div class="container-header">
         <div class="logo-header">
           <img src="/images/logo-mountain.svg" alt="Mountain Logo" />
-          <span class="title-logo">{{ companyTitle }}
-          </span>
+          <span class="title-logo">{{ companyTitle }}</span>
         </div>
         <div class="menu-container">
           <nav class="nav-head">
@@ -105,7 +99,7 @@
     </div>
   </section>
 </div>
-}
+
 <div class="cap">
   <div class="container loc-tour">
     <div class="info-cap">
@@ -114,10 +108,13 @@
     </div>
     <div class="info-tour">
       <p class="title-hike">о нашем походе</p>
-      <h2 class="study-tour">Исследуйте все горные <br> массивы мира вместе с нами</h2>
+      <h2 class="study-tour">
+        Исследуйте все горные
+        <br> массивы мира вместе с нами
+      </h2>
       <span class="tour-history">Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад.
-         Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат <br>Вирджиния, взял одно из самых странных слов в Lorem Ipsum,
-         "consectetur"и занялся его поисками в классической латинской литературе.
+        Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат <br>Вирджиния, взял одно из самых странных слов в Lorem Ipsum,
+        "consectetur"и занялся его поисками в классической латинской литературе.
       </span>
       <button id="btn-program">Программа тура</button>
     </div>
@@ -134,11 +131,11 @@
         профессор латыни из колледжа.
       </span>
       <div class="program-set-list">
-        @for (program of programs;track program.id) {
+        @for (program of programs; track program.id) {
         <div class="program-block">
           <div class="program-icon">
             <img
-              [src]="'/images/'+ program.icon +'.png'"
+              [src]="'/images/' + program.icon +'.png'"
               width="50px"
               height="50px"
             />
@@ -168,9 +165,11 @@
     <div>
       <img src="/images/lake-mountains.png" alt="Lake">
     </div>
-    <div><img src="/images/night-mountains.png" alt="Night">
+    <div>
+      <img src="/images/night-mountains.png" alt="Night">
     </div>
-    <div><img src="/images/stretching-mountains.png" alt="Stretching">
+    <div>
+      <img src="/images/stretching-mountains.png" alt="Stretching">
     </div>
   </div>
   <div class="rating-destinations">
