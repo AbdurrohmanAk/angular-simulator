@@ -16,19 +16,25 @@
             <a href="#" id="chapter-contacts">Контакты</a>
           </nav>
           <div class="extra-panel">
-            <button (click)="showTimer = !showTimer">
-              {{ showTimer ? 'Счетчик' : 'Таймер' }}
+            <button
+            id="btn-timer"
+            (click)="showTimer = !showTimer">
+            {{ showTimer ? 'Счетчик' : 'Таймер' }}
             </button>
             @if (showTimer) {
               <div>{{ currentDate }}</div>
             } @else {
               <div>
                 <button
-                  id="btn-counter"
+                  id="btn-reduce-counter"
                   (click)="counter = counter > 0 ? counter - 1 : 0"
                   [disabled]="counter === 0">-</button>
                   {{ counter }}
-                <button (click)="counter = counter + 1">+</button>
+                <button
+                id="btn-add-counter"
+                (click)="counter = counter + 1">
+                +
+                </button>
               </div>
             }
           </div>
@@ -37,7 +43,7 @@
       </div>
     </div>
   </header>
-  <section content-mountain>
+  <section class="content-mountain">
     <h1 class="main-title">
       Насладись прогулкой в горах
     <br/>
@@ -50,7 +56,8 @@
             id="tour-location-option"
             class="portal-block"
             [(ngModel)]="selectedLocation"
-            name="location">
+            name="location"
+            >
             <option value="">Локация для тура</option>
             <option value="dombay">Домбай</option>
             <option value="arkhyz">Архыз</option>
@@ -63,7 +70,8 @@
             id="tour-date-option"
             class="portal-block"
             [(ngModel)]="selectedDate"
-            name="date">
+            name="date"
+            >
             <option value="">Дата похода</option>
             <option value="2026-06">Июнь 2026</option>
           </select>
@@ -74,7 +82,8 @@
           id="tour-participants-option"
           class="portal-block"
           [(ngModel)]="selectedParticipants"
-          name="participants">
+          name="participants"
+          >
           <option value="">Участники</option>
           <option value="1">Участники</option>
           <option value="2">Участники</option>
@@ -91,6 +100,7 @@
       </form>
       <div>
         <input
+          id="inp-live-text"
           [(ngModel)]="liveText"
           placeholder="Введите текст"
         />
