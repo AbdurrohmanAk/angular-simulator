@@ -28,7 +28,9 @@
                 <button
                   id="btn-reduce-counter"
                   (click)="counter = counter > 0 ? counter - 1 : 0"
-                  [disabled]="counter === 0">-</button>
+                  [disabled]="counter === 0">
+                  -
+                </button>
                   {{ counter }}
                 <button
                 id="btn-add-counter"
@@ -57,7 +59,7 @@
             class="portal-block"
             [(ngModel)]="selectedLocation"
             name="location"
-            >
+          >
             <option value="">Локация для тура</option>
             <option value="dombay">Домбай</option>
             <option value="arkhyz">Архыз</option>
@@ -71,7 +73,7 @@
             class="portal-block"
             [(ngModel)]="selectedDate"
             name="date"
-            >
+          >
             <option value="">Дата похода</option>
             <option value="2026-06">Июнь 2026</option>
           </select>
@@ -83,7 +85,7 @@
           class="portal-block"
           [(ngModel)]="selectedParticipants"
           name="participants"
-          >
+        >
           <option value="">Участники</option>
           <option value="1">Участники</option>
           <option value="2">Участники</option>
@@ -172,15 +174,9 @@
   <p>по версии отдыхающих</p>
   <h2>Популярные направления</h2>
   <div class="block-directions">
-    <div>
       <img src="/images/lake-mountains.png" alt="Lake">
-    </div>
-    <div>
       <img src="/images/night-mountains.png" alt="Night">
-    </div>
-    <div>
       <img src="/images/stretching-mountains.png" alt="Stretching">
-    </div>
   </div>
   <div class="rating-destinations">
     <button id="btn-rating">
