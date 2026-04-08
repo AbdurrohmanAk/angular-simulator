@@ -23,7 +23,8 @@
         <div class="extra-panel">
           <button
             id="btn-timer"
-            (click)="showTimer = !showTimer">
+            (click)="showTimer = !showTimer"
+          >
             {{ showTimer ? 'Счетчик' : 'Таймер' }}
           </button>
           @if (showTimer) {
@@ -33,13 +34,15 @@
               <button
                 id="btn-reduce-counter"
                 (click)="counter = counter > 0 ? counter - 1 : 0"
-                [disabled]="counter === 0">
+                [disabled]="counter === 0"
+              >
                 -
               </button>
                 {{ counter }}
               <button
                 id="btn-add-counter"
-                (click)="counter = counter + 1">
+                (click)="counter = counter + 1"
+              >
                 +
               </button>
             </div>
