@@ -1,35 +1,72 @@
 import { Component } from '@angular/core';
 import './training';
-import { Color } from '../enums/Color';
+import { IProgram } from '../interfaces/IProgram';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  standalone: true,
+  imports: [FormsModule,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
 
-  companyTitle: string = 'Румтибет';
+  readonly companyTitle: string = 'Румтибет';
+  currentDate: string = '';
+  counter: number = 0;
+  showTimer: boolean = true;
+  liveText: string = '';
+  isLoading: boolean = true;
+  selectedLocation: string = '';
+  selectedDate: string = '';
+  selectedParticipants: string = '';
+
+  programs: IProgram[] = [
+    {
+      id: 1,
+      title: 'Опытный гид',
+      description:
+      'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      icon:'experienced-guide-icon'
+    },
+    {
+      id: 2,
+      title: 'Безопасный поход',
+      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      icon: 'safe-hike-icon'
+    },
+    {
+      id: 3,
+      title: 'Лояльные цены',
+      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      icon: 'loyal-prices-icon'
+    },
+  ];
+
   constructor() {
     this.saveDateLastVisit();
     this.saveVisitCount();
+
+    setInterval(() => {
+      this.currentDate = new Date().toLocaleString();
+    }, 1000)
+
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
   }
 
-  isPrimaryColor(color: Color): boolean {
-    const primaryColors: Color[] = [Color.RED, Color.GREEN, Color.BLUE];
-    return primaryColors.includes(color);
-  }
-
-  saveDateLastVisit(): void {
+  private saveDateLastVisit(): void {
     const currentDate: string = new Date().toISOString();
     localStorage.setItem('last-visit', currentDate);
   }
 
-  saveVisitCount(): void {
-    let count: number = Number(localStorage.getItem('visit-Count')) || 0;
+  private saveVisitCount(): void {
+    let count: number = Number(localStorage.getItem('visit-count')) || 0;
     count++;
     localStorage.setItem('visit-count', count.toString());
   }
 
 }
+
