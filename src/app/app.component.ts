@@ -2,15 +2,24 @@ import { Component } from '@angular/core';
 import './training';
 import { IProgram } from '../interfaces/IProgram';
 import { FormsModule } from '@angular/forms';
+import { IDirection } from '../interfaces/IDirection';
+import { ITrip } from '../interfaces/ITrips';
+import { MessageType } from '../enums/MessageType';
+import { IMessage } from '../interfaces/IMessage';
+import { MessageService } from './services/message.service';
+import { NgTemplateOutlet, NgClass } from '@angular/common';
+import { StorageService } from './services/storage.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FormsModule,],
+  imports: [FormsModule, NgTemplateOutlet, NgClass],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+
+  MessageType = MessageType;
 
   readonly companyTitle: string = 'Румтибет';
   currentDate: string = '';
@@ -44,19 +53,87 @@ export class AppComponent {
     },
   ];
 
-  constructor() {
-    this.saveDateLastVisit();
-    this.saveVisitCount();
+  directions: IDirection[] = [
+    {
+      id: 1,
+      image: 'lake-mountains',
+      rating: '4.9',
+      title: 'Озеро возле гор',
+      description: 'романтическое приключение',
+      price: 480,
+      currency: '$',
+    },
+    {
+      id: 2,
+      image: 'night-mountains',
+      rating: '4.5',
+      title: 'Ночь в горах',
+      description: 'в компании друзей',
+      price: 500,
+      currency: '$',
+    },
+    {
+      id: 3,
+      image: 'stretching-mountains',
+      rating: '5.0',
+      title: 'Растяжка в горах',
+      description: 'для тех, кто заботится о себе',
+      price: 230,
+      currency: '$',
+    },
+  ]
 
-    setInterval(() => {
-      this.currentDate = new Date().toLocaleString();
-    }, 1000)
 
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 1000);
-  }
+  trips: ITrip[] = [
+    {
+      id: 1,
+      title: 'Красивая Италия, какая она в реальности?',
+      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      date: '01/04/2023',
+      image: 'italy',
+      link: 'читать статью',
+    },
+    {
+      id: 2,
+      title: 'Долой сомнения! Весь мир открыт для вас!',
+      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации ... независимые способы реализации соответствующих...',
+      date: '01/04/2023',
+      image: 'airplane',
+      link: 'читать статью'
+    },
+    {
+      id: 3,
+      title: 'Как подготовиться к путешествию в одиночку?',
+      description: 'Для современного мира базовый вектор развития предполагает.',
+      date: '01/04/2023',
+      image: 'narrow-street',
+      link: 'читать статью'
+    },
+    {
+      id: 4,
+      title: 'Индия ... летим?',
+      description: 'Для современного мира базовый.',
+      date: '01/04/2023',
+      image: 'india',
+      link: 'читать статью'
+    }
+  ]
 
+constructor(
+  public messageService: MessageService,
+  private storageService: StorageService
+) {
+  this.saveDateLastVisit();
+  this.saveVisitCount();
+
+  setInterval(() => {
+    this.currentDate = new Date().toLocaleString();
+  }, 1000);
+
+  setTimeout(() => {
+    this.isLoading = false;
+  }, 1000);
+}
   private saveDateLastVisit(): void {
     const currentDate: string = new Date().toISOString();
     localStorage.setItem('last-visit', currentDate);
@@ -69,4 +146,3 @@ export class AppComponent {
   }
 
 }
-

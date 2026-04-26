@@ -48,7 +48,11 @@
             </div>
           }
         </div>
-        <button id="btn-consultation">Консультация</button>
+        <button
+          id="btn-consultation"
+          (click)="messageService.addMessage('Заявка отправлена', MessageType.Success)">
+          Консультация
+        </button>
       </div>
     </div>
   </div>
@@ -102,10 +106,9 @@
         <span class="clue">выберите из списка</span>
       </div>
       <button
-        class="search-program-btn"
-        id="search-program-btn"
-        [disabled]="!selectedLocation || !selectedDate || !selectedParticipants">
-        Найти программу
+        type="button"
+        (click)="messageService.addMessage('Информация', MessageType.Info)">
+        Info
       </button>
     </form>
     <div>
@@ -178,7 +181,72 @@
 </div>
 </section>
 
+<section class="popular-directions">
+  <p class="version-description">по версии отдыхающих</p>
+  <h2 class="pop-direction">Популярные направления</h2>
+  <div class="loc-popular-directions">
+    @for (direction of directions; track direction.id) {
+    <div class="direction-card">
+      <img [src]="'/images/' + direction.image +'.png'">
+      <span class="rating">
+        <img src="/images/star.svg" alt="star">
+        {{ direction.rating }}
+      </span>
+      <div class="card-overlay">
+        <div class="info-popular-local">
+          <h3> {{ direction.title }}</h3>
+          <p>{{ direction.description }}</p>
+        </div>
+        <span class="price-direction">
+          {{ direction.price }} {{ direction.currency }}
+        </span>
+      </div>
+    </div>
+  }
+  </div>
+    <div class="btn-featured-destinations">
+      <button class="rating-btn">Рейтинг направлений</button>
+    </div>
+</section>
 
+<section class="trips">
+  <p class="trips-description">делимся впечатлениями</p>
+  <h3 class="trips-title">Блог о путешествиях</h3>
+  <div class="blog-trips">
+    @for (trip of trips; track trip.id) {
+      <div class="trips-container">
+        <div class="trips-img">
+          <img [src]="'/images/' + trip.image + '.png'">
+        </div>
+        <div class="trips-content">
+          <h3>{{ trip.title }}</h3>
+          <p>{{ trip.description }}</p>
+          <div class="trips-bottom">
+            <span>{{trip.date}}</span>
+            <a>{{trip.link}}</a>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+  <div class="trips-button">
+    <button class="btn-material">Другие материалы</button>
+  </div>
+</section>
+
+<div class="messages">
+  @for (msg of messageService.messages$(); track msg.id) {
+    <ng-container
+      *ngTemplateOutlet="messageTpl; context: { $implicit: msg }">
+    </ng-container>
+  }
+</div>
+<ng-template #messageTpl let-message>
+  <div class="message" [ngClass]="message.type">
+    <span>{{ message.text }}</span>
+    <button (click)="messageService.closeMessage(message.id)">✖</button>
+  </div>
+</ng-template>
 
 
 
