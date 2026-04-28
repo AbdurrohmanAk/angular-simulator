@@ -10,8 +10,8 @@ export class StorageService {
   }
 
   getItem<T>(key: string): T | null {
-    const data = localStorage.getItem(key);
-    return data ? JSON.parse(data) : null;
+    const data: string | null = localStorage.getItem(key);
+    return data ? JSON.parse(data) as T : null;
   }
 
   removeItem(key: string): void {
@@ -21,4 +21,5 @@ export class StorageService {
   clear(): void {
     localStorage.clear();
   }
+
 }

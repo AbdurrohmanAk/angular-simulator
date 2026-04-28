@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { IProgram } from '../interfaces/IProgram';
 import { FormsModule } from '@angular/forms';
+import { NgTemplateOutlet, NgClass } from '@angular/common';
+
+import { IProgram } from '../interfaces/IProgram';
 import { IDirection } from '../interfaces/IDirection';
 import { ITrip } from '../interfaces/ITrips';
 import { MessageType } from '../enums/MessageType';
 import { MessageService } from './services/message.service';
-import { NgTemplateOutlet, NgClass } from '@angular/common';
 import { StorageService } from './services/storage.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class AppComponent {
 
   MessageType = MessageType;
 
-  readonly companyTitle: string = 'Румтибет';
+  companyTitle: string = 'Румтибет';
   currentDate: string = '';
   counter: number = 0;
   showTimer: boolean = true;
@@ -95,7 +96,7 @@ export class AppComponent {
     {
       id: 2,
       title: 'Долой сомнения! Весь мир открыт для вас!',
-      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации ... независимые способы реализации соответствующих...',
+      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации ...',
       date: '01/04/2023',
       image: 'airplane',
       link: 'читать статью'
@@ -128,11 +129,11 @@ export class AppComponent {
     this.saveDateLastVisit();
     this.saveVisitCount();
 
-    setInterval(() => {
+    setInterval((): void => {
       this.currentDate = new Date().toLocaleString();
     }, 1000);
 
-    setTimeout(() => {
+    setTimeout((): void => {
       this.isLoading = false;
     }, 1000);
   }
@@ -144,7 +145,7 @@ export class AppComponent {
 
   private saveVisitCount(): void {
     let count: number = Number(localStorage.getItem('visit-count')) || 0;
-    count++;
+    count = count + 1;
     localStorage.setItem('visit-count', count.toString());
   }
 

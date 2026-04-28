@@ -8,25 +8,27 @@ import { MessageType } from '../../enums/MessageType';
 export class MessageService {
 
   messages: IMessage[] = [];
-  private idCounter = 0;
+  private idCounter: number = 0;
 
   addMessage(text: string, type: MessageType): void {
     const newMessage: IMessage = {
-      id: ++this.idCounter,
-      text,
-      type
+      id: this.idCounter + 1,
+      text: text,
+      type: type
     };
 
-    this.messages.unshift(newMessage);
+    this.idCounter = this.idCounter + 1;
 
-    setTimeout(() => {
+    this.messages = [newMessage, ...this.messages];
+
+    setTimeout((): void => {
       this.closeMessage(newMessage.id);
     }, 5000);
   }
 
   closeMessage(id: number): void {
     this.messages = this.messages.filter(
-      message => message.id !== id
+      (message: IMessage): boolean => message.id !== id
     );
   }
 

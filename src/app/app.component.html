@@ -106,10 +106,12 @@
         <span class="clue">выберите из списка</span>
       </div>
       <button
+        class="search-program-btn"
+        id="search-program-btn"
         type="button"
         (click)="messageService.addMessage('Информация', MessageType.Info)"
       >
-        Info
+        Найти программу
       </button>
     </form>
     <div>
@@ -190,7 +192,7 @@
     <div class="direction-card">
       <img [src]="'/images/' + direction.image +'.png'">
       <span class="rating">
-        <img src="/images/rating-star.svg" alt="star">
+        <img src="/images/rating-star-icon.svg" alt="star">
         {{ direction.rating }}
       </span>
       <div class="card-overlay">
