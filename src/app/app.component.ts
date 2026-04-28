@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
-import './training';
 import { IProgram } from '../interfaces/IProgram';
 import { FormsModule } from '@angular/forms';
 import { IDirection } from '../interfaces/IDirection';
 import { ITrip } from '../interfaces/ITrips';
 import { MessageType } from '../enums/MessageType';
-import { IMessage } from '../interfaces/IMessage';
 import { MessageService } from './services/message.service';
 import { NgTemplateOutlet, NgClass } from '@angular/common';
 import { StorageService } from './services/storage.service';
@@ -18,6 +16,9 @@ import { StorageService } from './services/storage.service';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+
+  messageService: MessageService;
+  private storageService: StorageService;
 
   MessageType = MessageType;
 
@@ -35,9 +36,8 @@ export class AppComponent {
     {
       id: 1,
       title: 'Опытный гид',
-      description:
-      'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
-      icon:'experienced-guide-icon'
+      description: 'Для современного мира базовый вектор развития предполагает независимые способы реализации соответствующих условий активизации.',
+      icon: 'experienced-guide-icon'
     },
     {
       id: 2,
@@ -81,8 +81,7 @@ export class AppComponent {
       price: 230,
       currency: '$',
     },
-  ]
-
+  ];
 
   trips: ITrip[] = [
     {
@@ -114,26 +113,30 @@ export class AppComponent {
       title: 'Индия ... летим?',
       description: 'Для современного мира базовый.',
       date: '01/04/2023',
-      image: 'india',
+      image: 'mosque-india',
       link: 'читать статью'
     }
-  ]
+  ];
 
-constructor(
-  public messageService: MessageService,
-  private storageService: StorageService
-) {
-  this.saveDateLastVisit();
-  this.saveVisitCount();
+  constructor(
+    messageService: MessageService,
+    storageService: StorageService
+  ) {
+    this.messageService = messageService;
+    this.storageService = storageService;
 
-  setInterval(() => {
-    this.currentDate = new Date().toLocaleString();
-  }, 1000);
+    this.saveDateLastVisit();
+    this.saveVisitCount();
 
-  setTimeout(() => {
-    this.isLoading = false;
-  }, 1000);
-}
+    setInterval(() => {
+      this.currentDate = new Date().toLocaleString();
+    }, 1000);
+
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
+  }
+
   private saveDateLastVisit(): void {
     const currentDate: string = new Date().toISOString();
     localStorage.setItem('last-visit', currentDate);
