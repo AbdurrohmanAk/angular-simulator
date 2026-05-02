@@ -1,9 +1,9 @@
 export interface IDirection {
-  id: number,
-  image: string,
-  rating: string,
-  title: string,
-  description: string,
-  price: number,
+  id: number;
+  image: string;
+  rating: string;
+  title: string;
+  description: string;
+  price: number;
   currency?: string;
 }
