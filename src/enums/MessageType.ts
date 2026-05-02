@@ -1,5 +1,5 @@
 export enum MessageType {
-  Success = 'success',
-  Error = 'error',
-  Info = 'info'
+  SUCCESS = 'success',
+  ERROR = 'error',
+  INFO = 'info'
 }

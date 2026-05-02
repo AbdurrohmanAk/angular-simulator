@@ -50,7 +50,7 @@
         </div>
         <button
           id="btn-consultation"
-          (click)="messageService.addMessage('Заявка отправлена', MessageType.Success)">
+          (click)="messageService.addMessage('Заявка отправлена', MessageType.SUCCESS)">
           Консультация
         </button>
       </div>
@@ -109,7 +109,7 @@
         class="search-program-btn"
         id="search-program-btn"
         type="button"
-        (click)="messageService.addMessage('Информация', MessageType.Info)"
+        (click)="messageService.addMessage('Информация', MessageType.INFO)"
       >
         Найти программу
       </button>
@@ -195,11 +195,13 @@
         <img src="/images/rating-star-icon.svg" alt="star">
         {{ direction.rating }}
       </span>
+
       <div class="card-overlay">
         <div class="info-popular-local">
-          <h3> {{ direction.title }}</h3>
+          <h3>{{ direction.title }}</h3>
           <p>{{ direction.description }}</p>
         </div>
+
         <span class="price-direction">
           {{ direction.price }} {{ direction.currency }}
         </span>
@@ -225,8 +227,8 @@
           <h3>{{ trip.title }}</h3>
           <p>{{ trip.description }}</p>
           <div class="trips-bottom">
-            <span>{{trip.date}}</span>
-            <a>{{trip.link}}</a>
+            <span>{{ trip.date }}</span>
+            <a>{{ trip.link }}</a>
           </div>
         </div>
       </div>

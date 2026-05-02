@@ -8,16 +8,13 @@ import { MessageType } from '../../enums/MessageType';
 export class MessageService {
 
   messages: IMessage[] = [];
-  private idCounter: number = 0;
 
   addMessage(text: string, type: MessageType): void {
     const newMessage: IMessage = {
-      id: this.idCounter + 1,
+      id: Date.now(),
       text: text,
       type: type
     };
-
-    this.idCounter = this.idCounter + 1;
 
     this.messages = [newMessage, ...this.messages];
 
@@ -28,7 +25,7 @@ export class MessageService {
 
   closeMessage(id: number): void {
     this.messages = this.messages.filter(
-      (message: IMessage): boolean => message.id !== id
+      (message: IMessage) => message.id !== id
     );
   }
 
