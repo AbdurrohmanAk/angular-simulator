@@ -10,16 +10,13 @@ export class StorageService {
   }
 
   getItem<T>(key: string): T | null {
-    const data = localStorage.getItem(key);
+    const data: string | null = localStorage.getItem(key);
+
     if (!data) {
       return null;
     }
 
-    try {
-      return JSON.parse(data);
-    } catch {
-      return null;
-    }
+    return JSON.parse(data);
   }
 
   removeItem(key: string): void {
@@ -31,3 +28,4 @@ export class StorageService {
   }
 
 }
+

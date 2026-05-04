@@ -239,9 +239,7 @@
 
 <div class="messages">
   @for (msg of messageService.messages; track msg.id) {
-    <ng-container
-      *ngTemplateOutlet="messageTpl; context: { $implicit: msg }"
-    >
+    <ng-container *ngTemplateOutlet="messageTpl; context: { $implicit: msg }">
     </ng-container>
   }
 </div>

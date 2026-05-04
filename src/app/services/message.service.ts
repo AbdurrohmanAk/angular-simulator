@@ -12,21 +12,20 @@ export class MessageService {
   addMessage(text: string, type: MessageType): void {
     const newMessage: IMessage = {
       id: Date.now(),
-      text: text,
-      type: type
+      text,
+      type
     };
 
     this.messages = [newMessage, ...this.messages];
 
-    setTimeout((): void => {
+    setTimeout(() => {
       this.closeMessage(newMessage.id);
     }, 5000);
   }
 
   closeMessage(id: number): void {
     this.messages = this.messages.filter(
-      (message: IMessage) => message.id !== id
+      (message) => message.id !== id
     );
   }
-
 }
