@@ -156,23 +156,25 @@
       то есть более двух тысячелетий назад. Ричард МакКлинток,
       профессор латыни из колледжа.
     </span>
-    <div class="program-set-list">
-      @for (program of programs; track program.id) {
-      <div class="program-block">
-        <div class="program-icon">
-          <img
-            [src]="'/images/' + program.icon +'.png'"
-            width="50px"
-            height="50px"
-          />
-        </div>
-        <div class="program-set-info">
-          <p class="title-program">{{ program.title }}</p>
-          <span class="description-program">{{ program.description }}</span>
-        </div>
+<div class="program-set-list">
+  @for (program of programs; track program.id) {
+    <div class="program-block">
+      <div class="program-icon">
+        <img
+          [src]="'/images/' + program.icon + '.png'"
+          width="50px"
+          height="50px"
+        />
       </div>
-    }
+      <div class="program-set-info">
+        <p class="title-program">{{ program.title }}</p>
+        <span class="description-program">
+          {{ program.description }}
+        </span>
+      </div>
     </div>
+  }
+</div>
     <button id="program-price-btn">Стоимость программ</button>
   </div>
   <div class="icon">
@@ -187,29 +189,30 @@
 <section class="popular-directions">
   <p class="version-description">по версии отдыхающих</p>
   <h2 class="pop-direction">Популярные направления</h2>
+
   <div class="loc-popular-directions">
     @for (direction of directions; track direction.id) {
-    <div class="direction-card">
-      <img [src]="'/images/' + direction.image +'.png'">
+      <div class="direction-card">
+        <img [src]="'/images/' + direction.image + '.png'">
         <span class="rating">
           <img src="/images/rating-star-icon.svg" alt="star">
           {{ direction.rating }}
         </span>
-      <div class="card-overlay">
-        <div class="info-popular-local">
-          <h3>{{ direction.title }}</h3>
-          <p>{{ direction.description }}</p>
+        <div class="card-overlay">
+          <div class="info-popular-local">
+            <h3>{{ direction.title }}</h3>
+            <p>{{ direction.description }}</p>
+          </div>
+          <span class="price-direction">
+            {{ direction.price }} {{ direction.currency }}
+          </span>
         </div>
-        <span class="price-direction">
-          {{ direction.price }} {{ direction.currency }}
-        </span>
       </div>
-    </div>
-  }
+    }
   </div>
-    <div class="btn-featured-destinations">
-      <button class="rating-btn">Рейтинг направлений</button>
-    </div>
+  <div class="btn-featured-destinations">
+    <button class="rating-btn">Рейтинг направлений</button>
+  </div>
 </section>
 
 <section class="trips">
