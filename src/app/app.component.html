@@ -191,17 +191,15 @@
     @for (direction of directions; track direction.id) {
     <div class="direction-card">
       <img [src]="'/images/' + direction.image +'.png'">
-      <span class="rating">
-        <img src="/images/rating-star-icon.svg" alt="star">
-        {{ direction.rating }}
-      </span>
-
+        <span class="rating">
+          <img src="/images/rating-star-icon.svg" alt="star">
+          {{ direction.rating }}
+        </span>
       <div class="card-overlay">
         <div class="info-popular-local">
           <h3>{{ direction.title }}</h3>
           <p>{{ direction.description }}</p>
         </div>
-
         <span class="price-direction">
           {{ direction.price }} {{ direction.currency }}
         </span>
@@ -242,7 +240,8 @@
 <div class="messages">
   @for (msg of messageService.messages; track msg.id) {
     <ng-container
-      *ngTemplateOutlet="messageTpl; context: { $implicit: msg }">
+      *ngTemplateOutlet="messageTpl; context: { $implicit: msg }"
+    >
     </ng-container>
   }
 </div>
