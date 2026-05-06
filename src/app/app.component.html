@@ -146,44 +146,43 @@
   </div>
 </div>
 </div>
+
 <section class="info-best-program">
-<div class="content-best-program">
-  <div class="info-program-tour">
-    <p>наше предложение</p>
-    <h2>Лучшие программы для тебя</h2>
-    <span>
-      Его корни уходят в один фрагмент классической латыни 45 года н.э.,
-      то есть более двух тысячелетий назад. Ричард МакКлинток,
-      профессор латыни из колледжа.
-    </span>
-<div class="program-set-list">
-  @for (program of programs; track program.id) {
-    <div class="program-block">
-      <div class="program-icon">
-        <img
-          [src]="'/images/' + program.icon + '.png'"
-          width="50px"
-          height="50px"
-        />
+  <div class="content-best-program">
+    <div class="info-program-tour">
+      <p>наше предложение</p>
+      <h2>Лучшие программы для тебя</h2>
+      <span>
+        Его корни уходят в один фрагмент классической латыни 45 года н.э.,
+        то есть более двух тысячелетий назад. Ричард МакКлинток,
+        профессор латыни из колледжа.
+      </span>
+
+      <div class="program-set-list">
+        @for (program of programs; track program.id) {
+        <div class="program-block">
+          <div class="program-icon">
+            <img [src]="'/images/' + program.icon + '.png'" width="50px" height="50px" />
+          </div>
+          <div class="program-set-info">
+            <p class="title-program">{{ program.title }}</p>
+            <span class="description-program">
+              {{ program.description }}
+            </span>
+          </div>
+        </div>
+        }
       </div>
-      <div class="program-set-info">
-        <p class="title-program">{{ program.title }}</p>
-        <span class="description-program">
-          {{ program.description }}
-        </span>
-      </div>
+
+      <button id="program-price-btn">Стоимость программ</button>
     </div>
-  }
-</div>
-    <button id="program-price-btn">Стоимость программ</button>
+    <div class="icon">
+      <img src="/images/gorge-mountains.png" alt="George">
+      <img src="/images/canyon.png" alt="Canyon">
+      <img src="/images/mountain-snowmobile.png" alt="Snowmobile">
+      <img src="/images/mountain-red-river.png" alt="River">
+    </div>
   </div>
-  <div class="icon">
-    <img src="/images/gorge-mountains.png" alt="George">
-    <img src="/images/canyon.png" alt="Canyon">
-    <img src="/images/mountain-snowmobile.png" alt="Snowmobile">
-    <img src="/images/mountain-red-river.png" alt="River">
-  </div>
-</div>
 </section>
 
 <section class="popular-directions">
