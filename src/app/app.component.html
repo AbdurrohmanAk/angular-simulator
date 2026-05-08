@@ -158,21 +158,21 @@
         профессор латыни из колледжа.
       </span>
 
-      <div class="program-set-list">
-        @for (program of programs; track program.id) {
-        <div class="program-block">
-          <div class="program-icon">
-            <img [src]="'/images/' + program.icon + '.png'" width="50px" height="50px" />
-          </div>
-          <div class="program-set-info">
-            <p class="title-program">{{ program.title }}</p>
-            <span class="description-program">
-              {{ program.description }}
-            </span>
-          </div>
-        </div>
-        }
+<div class="program-set-list">
+  @for (program of programs; track program.id) {
+    <div class="program-block">
+      <div class="program-icon">
+        <img [src]="'/images/' + program.icon + '.png'" width="50px" height="50px" />
       </div>
+        <div class="program-set-info">
+          <p class="title-program">{{ program.title }}</p>
+            <span class="description-program">
+            {{ program.description }}
+        </span>
+        </div>
+    </div>
+  }
+</div>
 
       <button id="program-price-btn">Стоимость программ</button>
     </div>
@@ -210,7 +210,7 @@
     }
   </div>
   <div class="btn-featured-destinations">
-    <button class="rating-btn">Рейтинг направлений</button>
+    <button id="rating-button"  class="rating-btn">Рейтинг направлений</button>
   </div>
 </section>
 
@@ -235,7 +235,7 @@
     }
   </div>
   <div class="trips-button">
-    <button class="btn-material">Другие материалы</button>
+    <button id="material-btn" class="btn-material">Другие материалы</button>
   </div>
 </section>
 
@@ -248,6 +248,6 @@
 <ng-template #messageTpl let-message>
   <div class="message" [ngClass]="message.type">
     <span>{{ message.text }}</span>
-    <button (click)="messageService.closeMessage(message.id)">✖</button>
+    <button id="click-message-btn" (click)="messageService.closeMessage(message.id)">✖</button>
   </div>
 </ng-template>

@@ -18,9 +18,9 @@ import { StorageService } from './services/storage.service';
 })
 export class AppComponent {
 
-  messageService = inject(MessageService);
+  protected readonly messageService: MessageService = inject(MessageService);
 
-  private storageService = inject(StorageService);
+  private readonly storageService: StorageService = inject(StorageService);
 
   MessageType: typeof MessageType = MessageType;
 
