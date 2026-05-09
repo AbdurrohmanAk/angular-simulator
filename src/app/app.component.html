@@ -157,23 +157,21 @@
         то есть более двух тысячелетий назад. Ричард МакКлинток,
         профессор латыни из колледжа.
       </span>
-
-<div class="program-set-list">
-  @for (program of programs; track program.id) {
-    <div class="program-block">
-      <div class="program-icon">
-        <img [src]="'/images/' + program.icon + '.png'" width="50px" height="50px" />
-      </div>
-        <div class="program-set-info">
-          <p class="title-program">{{ program.title }}</p>
+      <div class="program-set-list">
+        @for (program of programs; track program.id) {
+        <div class="program-block">
+          <div class="program-icon">
+            <img [src]="'/images/' + program.icon + '.png'" width="50px" height="50px" />
+          </div>
+          <div class="program-set-info">
+            <p class="title-program">{{ program.title }}</p>
             <span class="description-program">
-            {{ program.description }}
-        </span>
+              {{ program.description }}
+            </span>
+          </div>
         </div>
-    </div>
-  }
-</div>
-
+        }
+      </div>
       <button id="program-price-btn">Стоимость программ</button>
     </div>
     <div class="icon">
