@@ -1,0 +1,131 @@
+@if (isLoading) {
+  <div class="loader-overlay">
+    <div class="loader"></div>
+  </div>
+}
+<div class="wrapper-mountain">
+  <header class="header">
+  <div class="main-header">
+    <div class="container-header">
+      <div class="logo-header">
+        <img src="/images/logo-mountain.svg" alt="Mountain Logo" />
+        <span class="title-logo">{{ companyTitle }}</span>
+      </div>
+      <div class="menu-container">
+        <nav class="nav-head">
+          @for (item of navigation; track item.link) {
+            <a
+              [routerLink]="item.link"
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{ exact: true}"
+            >
+              {{ item.title }}
+            </a>
+          }
+        </nav>
+        <div class="extra-panel">
+          <button
+            id="btn-timer"
+            (click)="showTimer = !showTimer"
+          >
+            {{ showTimer ? 'Счетчик' : 'Таймер' }}
+          </button>
+          @if (showTimer) {
+            <div>{{ currentDate }}</div>
+          } @else {
+            <div>
+              <button
+                id="btn-reduce-counter"
+                (click)="counter = counter > 0 ? counter - 1 : 0"
+                [disabled]="counter === 0"
+              >
+                -
+              </button>
+                {{ counter }}
+              <button
+                id="btn-add-counter"
+                (click)="counter = counter + 1"
+              >
+                +
+              </button>
+            </div>
+          }
+        </div>
+        <button
+          id="btn-consultation"
+          (click)="messageService.showSuccess('Заявка отправлена')">
+          Консультация
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+<section class="content-mountain">
+  <h1 class="main-title">
+    Насладись прогулкой в горах
+  <br/>
+    с командой единомышленников
+  </h1>
+  <div class="design-tour">
+    <form class="tour-menu" novalidate>
+      <div class="menu-form-block">
+        <select
+          id="tour-location-option"
+          class="portal-block"
+          [(ngModel)]="selectedLocation"
+          name="location"
+        >
+          <option value="">Локация для тура</option>
+          <option value="dombay">Домбай</option>
+          <option value="arkhyz">Архыз</option>
+          <option value="elbrus">Эльбрус</option>
+        </select>
+        <span class="clue">выберите из списка</span>
+      </div>
+      <div class="menu-form-block">
+        <select
+          id="tour-date-option"
+          class="portal-block"
+          [(ngModel)]="selectedDate"
+          name="date"
+        >
+          <option value="">Дата похода</option>
+          <option value="2026-06">Июнь 2026</option>
+        </select>
+        <span class="clue">укажите дату</span>
+      </div>
+      <div class="menu-form-block">
+      <select
+        id="tour-participants-option"
+        class="portal-block"
+        [(ngModel)]="selectedParticipants"
+        name="participants"
+      >
+        <option value="">Участники</option>
+        <option value="1">Участники</option>
+        <option value="2">Участники</option>
+        <option value="3">Участники</option>
+      </select>
+        <span class="clue">выберите из списка</span>
+      </div>
+      <button
+        class="search-program-btn"
+        id="search-program-btn"
+        type="button"
+        (click)="messageService.showInfo('Информация')"
+      >
+        Найти программу
+      </button>
+    </form>
+    <div>
+      <input
+        id="inp-live-text"
+        [(ngModel)]="liveText"
+        placeholder="Введите текст"
+      />
+      <span>{{ liveText }}</span>
+    </div>
+  </div>
+</section>
+</div>
+

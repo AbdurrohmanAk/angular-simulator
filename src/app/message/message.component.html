@@ -1,0 +1,12 @@
+<div class="messages">
+  @for (msg of messageService.messages; track msg.id) {
+    <ng-container *ngTemplateOutlet="messageTpl; context: { $implicit: msg }">
+    </ng-container>
+  }
+</div>
+<ng-template #messageTpl let-message>
+  <div class="message" [ngClass]="message.type">
+    <span>{{ message.text }}</span>
+    <button id="click-message-btn" (click)="messageService.closeMessage(message.id)">✖</button>
+  </div>
+</ng-template>
