@@ -13,28 +13,30 @@ import { INavigation } from '../../interfaces/INavigation';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-
   messageService: MessageService = inject(MessageService);
 
   MessageType: typeof MessageType = MessageType;
 
   companyTitle: string = 'Румтибет';
-
   currentDate: string = '';
-
   counter: number = 0;
-
   showTimer: boolean = true;
-
   liveText: string = '';
-
   isLoading: boolean = true;
-
   selectedLocation: string = '';
-
   selectedDate: string = '';
-
   selectedParticipants: string = '';
+
+  navigation: INavigation[] = [
+    {
+      title: 'Главная',
+      link: '/'
+    },
+    {
+      title: 'Пользователи',
+      link: '/users'
+    }
+  ];
 
   constructor() {
     this.startTimer();
@@ -53,14 +55,4 @@ export class HeaderComponent {
     }, 1000);
   }
 
-  navigation: INavigation[] = [
-    {
-      title: 'Главная',
-      link: '/'
-    },
-    {
-      title: 'Пользователи',
-      link: '/users'
-    }
-  ];
 }

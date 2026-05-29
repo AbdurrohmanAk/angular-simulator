@@ -139,12 +139,15 @@
 
 .block-contact {
   margin-top: 80px;
+
+  a {
+    color: var(--basic-color);
+  }
 }
 
 .block-contact-info {
   display: flex;
   align-items: center;
-
   gap: 24px;
   margin-bottom: 16px;
 }
