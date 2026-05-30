@@ -18,13 +18,21 @@ export class HeaderComponent {
   MessageType: typeof MessageType = MessageType;
 
   companyTitle: string = 'Румтибет';
+
   currentDate: string = '';
+
   counter: number = 0;
+
   showTimer: boolean = true;
+
   liveText: string = '';
+
   isLoading: boolean = true;
+
   selectedLocation: string = '';
+
   selectedDate: string = '';
+  
   selectedParticipants: string = '';
 
   navigation: INavigation[] = [

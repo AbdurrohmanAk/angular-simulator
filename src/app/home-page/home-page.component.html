@@ -117,12 +117,9 @@
       <span class="impressions">Делимся впечатлениями</span>
     </div>
   <div class="content-impressions">
-    <img src="/images/air-ballons.png" >
-    <img src="/images/travel-map.png" >
-    <img src="/images/sail-hotel-dubai.png" >
-    <img src="/images/maldives-coast.png" >
-    <img src="/images/texas-canyon.png" >
-    <img src="/images/travel-notes.png" >
+    @for (photo of photos; track photo.id) {
+      <img [src]="'/images/' + photo.image + '.png'" >
+    }
   </div>
   <button
     class="btn-pinterest"
