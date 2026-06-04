@@ -40,16 +40,12 @@
       <div class="company-services">
         <div class="service-navigation-link">
           <h3>Наши услуги</h3>
-          @for (service of services; track service.id) {
-            <div class="service-item">
+          @for (service of services; track service) {
+            <div>
               <img src="/images/chevron-icon.svg">
-              <a
-              href="#"
-              class="footer-link"
-              [id]="service.id"
-              >
-              {{ service.title }}
-            </a>
+              <a class="footer-link">
+                {{ service }}
+              </a>
             </div>
           }
         </div>

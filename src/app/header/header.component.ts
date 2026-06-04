@@ -13,6 +13,7 @@ import { INavigation } from '../../interfaces/INavigation';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  
   messageService: MessageService = inject(MessageService);
 
   MessageType: typeof MessageType = MessageType;
@@ -32,7 +33,7 @@ export class HeaderComponent {
   selectedLocation: string = '';
 
   selectedDate: string = '';
-  
+
   selectedParticipants: string = '';
 
   navigation: INavigation[] = [

@@ -129,4 +129,5 @@ export class HomePageComponent {
     image: 'travel-notes'
     }
   ];
+  
 }
