@@ -4,7 +4,6 @@ import { IProgram } from '../../interfaces/IProgram';
 import { IDirection } from '../../interfaces/IDirection';
 import { ITrip } from '../../interfaces/ITrips';
 import { MessageService } from '../services/message.service';
-import { IPhoto } from '../../interfaces/IPhoto';
 
 @Component({
   selector: 'app-home-page',
@@ -103,31 +102,13 @@ export class HomePageComponent {
     }
   ];
 
-  photos: IPhoto[] = [
-    {
-      id: 1,
-      image: 'air-ballons'
-    },
-    {
-      id: 2,
-      image: 'travel-map'
-    },
-    {
-      id: 3,
-      image: 'sail-hotel-dubai'
-    },
-    {
-      id: 4,
-      image: 'maldives-coast'
-    },
-    {
-      id: 5,
-      image: 'texas-canyon'
-    },
-    {
-    id: 6,
-    image: 'travel-notes'
-    }
-  ];
-  
+photoImages: string[] = [
+  'air-ballons',
+  'travel-map',
+  'sail-hotel-dubai',
+  'maldives-coast',
+  'texas-canyon',
+  'travel-notes'
+];
+
 }

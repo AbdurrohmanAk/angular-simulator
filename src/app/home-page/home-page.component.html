@@ -117,8 +117,8 @@
       <span class="impressions">Делимся впечатлениями</span>
     </div>
   <div class="content-impressions">
-    @for (photo of photos; track photo.id) {
-      <img [src]="'/images/' + photo.image + '.png'" >
+    @for (photo of photoImages; track photo) {
+      <img [src]="'/images/' + photo + '.png'" >
     }
   </div>
   <button

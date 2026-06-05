@@ -10,7 +10,7 @@ import { RouterLink } from "@angular/router";
 })
 export class FooterComponent {
 
-  services: string[] = [
+  hikes: string[] = [
   'Прогулки в горы летом',
   'Зимние походы в горы',
   'Посещение храмов в горах',
