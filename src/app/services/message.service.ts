@@ -9,7 +9,11 @@ export class MessageService {
 
   messages: IMessage[] = [];
 
-  addMessage(text: string, type: MessageType): void {
+  private addMessage(
+    text: string,
+    type: MessageType
+  ): void {
+
     const newMessage: IMessage = {
       id: Date.now(),
       text,
@@ -23,9 +27,26 @@ export class MessageService {
     }, 5000);
   }
 
+  showSuccess(text: string): void {
+    this.addMessage(text, MessageType.SUCCESS);
+  }
+
+  showError(text: string): void {
+    this.addMessage(text, MessageType.ERROR);
+  }
+
+  showWarn(text: string): void {
+    this.addMessage(text, MessageType.WARNING);
+  }
+
+  showInfo(text: string): void {
+    this.addMessage(text, MessageType.INFO);
+  }
+
   closeMessage(id: number): void {
     this.messages = this.messages.filter(
       (message) => message.id !== id
     );
   }
+
 }

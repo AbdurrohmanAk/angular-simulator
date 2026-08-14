@@ -1,0 +1,130 @@
+<div class="cap">
+<div class="container loc-tour">
+  <div class="info-cap">
+    <img src="/images/snowy-mountains.png" alt="Снежная гора" class="snowy-mountain-icon">
+    <img src="/images/forest-tour.png" alt="Лес" class="forest-icon">
+  </div>
+  <div class="info-tour">
+    <p class="title-hike">о нашем походе</p>
+    <h2 class="study-tour">
+      Исследуйте все горные
+      <br> массивы мира вместе с нами
+    </h2>
+    <span class="tour-history">Его корни уходят в один фрагмент классической латыни 45 года н.э., то есть более двух тысячелетий назад.
+      Ричард МакКлинток, профессор латыни из колледжа Hampden-Sydney, штат <br>Вирджиния, взял одно из самых странных слов в Lorem Ipsum,
+      "consectetur"и занялся его поисками в классической латинской литературе.
+    </span>
+    <button id="btn-program">Программа тура</button>
+  </div>
+</div>
+</div>
+
+<section class="info-best-program">
+  <div class="content-best-program">
+    <div class="info-program-tour">
+      <p>наше предложение</p>
+      <h2>Лучшие программы для тебя</h2>
+      <span>
+        Его корни уходят в один фрагмент классической латыни 45 года н.э.,
+        то есть более двух тысячелетий назад. Ричард МакКлинток,
+        профессор латыни из колледжа.
+      </span>
+      <div class="program-set-list">
+      @for (program of programs; track program.id) {
+        <div class="program-block">
+          <div class="program-icon">
+            <img [src]="'/images/' + program.icon + '.png'" width="50px" height="50px" />
+          </div>
+          <div class="program-set-info">
+            <p class="title-program">
+              {{ program.title }}
+            </p>
+            <span class="description-program">
+              {{ program.description }}
+            </span>
+          </div>
+        </div>
+      }
+      </div>
+      <button id="program-price-btn">Стоимость программ</button>
+    </div>
+    <div class="icon">
+      <img src="/images/gorge-mountains.png" alt="George">
+      <img src="/images/canyon.png" alt="Canyon">
+      <img src="/images/mountain-snowmobile.png" alt="Snowmobile">
+      <img src="/images/mountain-red-river.png" alt="River">
+    </div>
+  </div>
+</section>
+
+<section class="popular-directions">
+  <p class="version-description">по версии отдыхающих</p>
+  <h2 class="pop-direction">Популярные направления</h2>
+
+  <div class="loc-popular-directions">
+    @for (direction of directions; track direction.id) {
+      <div class="direction-card">
+        <img [src]="'/images/' + direction.image + '.png'">
+        <span class="rating">
+          <img src="/images/rating-star-icon.svg" alt="star">
+          {{ direction.rating }}
+        </span>
+        <div class="card-overlay">
+          <div class="info-popular-local">
+            <h3>{{ direction.title }}</h3>
+            <p>{{ direction.description }}</p>
+          </div>
+          <span class="price-direction">
+            {{ direction.price }} {{ direction.currency }}
+          </span>
+        </div>
+      </div>
+    }
+  </div>
+  <div class="btn-featured-destinations">
+    <button id="rating-button"  class="rating-btn">Рейтинг направлений</button>
+  </div>
+</section>
+
+<section class="trips">
+  <p class="trips-description">делимся впечатлениями</p>
+  <h3 class="trips-title">Блог о путешествиях</h3>
+  <div class="blog-trips">
+    @for (trip of trips; track trip.id) {
+      <div class="trips-container">
+        <div class="trips-img">
+          <img [src]="'/images/' + trip.image + '.png'">
+        </div>
+        <div class="trips-content">
+          <h3>{{ trip.title }}</h3>
+          <p>{{ trip.description }}</p>
+          <div class="trips-bottom">
+            <span>{{ trip.date }}</span>
+            <a>{{ trip.link }}</a>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+  <div class="trips-button">
+    <button id="material-btn" class="btn-material">Другие материалы</button>
+  </div>
+</section>
+
+<section class="photo-report">
+    <div class="container-title-impressions">
+      <p class="title-report">фото-отчет</p>
+      <span class="impressions">Делимся впечатлениями</span>
+    </div>
+  <div class="content-impressions">
+    @for (photo of photoImages; track photo) {
+      <img [src]="'/images/' + photo + '.png'" >
+    }
+  </div>
+  <button
+    class="btn-pinterest"
+    id="pinterest-btn"
+  >
+    Наш pinterest
+  </button>
+</section>

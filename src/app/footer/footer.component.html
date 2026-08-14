@@ -1,0 +1,82 @@
+<footer class="footer">
+  <div class="container start-footer">
+    <div class="main-title-block">
+      <div class="title-info-block">
+      <p>актуально</p>
+      <h2>Получайте полезные <br> рассылки о путешествиях</h2>
+    </div>
+    <div class="subscription-block">
+      <h4>Введите e-mail адрес</h4>
+      <form id="input-field" class="input-field">
+        <div class="block-input">
+          <input type="text" name="email" id="email-input" placeholder="name@domain.com"/>
+          <button type="submit" id="btn-subscription-news" class="btn-subscription-news">
+            Подписаться на новости
+          </button>
+        </div>
+      </form>
+        <p>подписываясь на новости, вы автоматически соглашаетесь <u>с условиями <br>обработки персональных данных и правилами рекламных рассылок</u></p>
+    </div>
+    </div>
+  </div>
+  <div class="footer-content">
+    <div class="container main-footer">
+      <div class="company-info">
+        <h3>Компания Румтибет"</h3>
+        <p>Его корни уходят в один фрагмент классической латыни 45 <br>года н.э., то есть более двух тысячелетий назад. Ричард МакКлинток,<br> профессор латыни из колледжа Hampden-Sydney.</p>
+        <div class="block-contact">
+          <div class="block-contact-info">
+            <a id="inf-link">info@domain.com</a>
+            <a id="inf-contact">+7 (123) 456-78-90</a>
+          </div>
+          <div class="messenger-icon-block">
+            <img src="/images/telegram-messager-icon.svg">
+            <img src="/images/vk-messager-icon.svg">
+            <img src="/images/pinterest-icon.svg">
+            <img src="/images/skype-icon.svg">
+          </div>
+        </div>
+      </div>
+      <div class="company-services">
+        <div class="service-navigation-link">
+          <h3>Наши услуги</h3>
+          @for (hike of hikes; track hike) {
+            <div>
+              <img src="/images/chevron-icon.svg">
+              <a class="footer-link">
+                {{ hike }}
+              </a>
+            </div>
+          }
+        </div>
+      </div>
+      <div class="important-information">
+        <h3>Важно для путешествий</h3>
+        <div class="important-info-block">
+          <div class="information-line">
+            <img src="/images/chevron-icon.svg" >
+            <a class="long-hike" id="long-hike">Как собрать в долгий поход?</a>
+          </div>
+          <div class="information-line">
+            <img src="/images/chevron-icon.svg" >
+            <a class="important-items" id="important-items">Жизненно важные предметы для похода</a>
+          </div>
+          <div class="information-line">
+            <img src="/images/chevron-icon.svg" >
+            <a class="health-insurance" id="health-insurance">Медицинская страховка, гарантии <br>безопасности</a>
+          </div>
+          <div class="information-line">
+            <img src="/images/chevron-icon.svg" >
+            <a class="doctors-section" id="doctors-section">Если вы врач - загляните сюда</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bootom">
+    <div class="container processing-polisy">
+      <p>ИП Константинопольский К.К., 2023</p>
+      <span>Политика обработки персональных данных</span>
+    </div>
+  </div>
+</footer>
