@@ -7,29 +7,20 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class MessageService {
+  private messagesSubject: BehaviorSubject<IMessage[]> = new BehaviorSubject<IMessage[]>([]);
 
-  private messagesSubject: BehaviorSubject<IMessage[]> =
-   new BehaviorSubject<IMessage[]>([])
+  messages$ = this.messagesSubject.asObservable();
 
-   messages$ = this.messagesSubject.asObservable();
-
-  private addMessage(
-    text: string,
-    type: MessageType
-  ): void {
-
+  private addMessage(text: string, type: MessageType): void {
     const newMessage: IMessage = {
       id: Date.now(),
       text,
-      type
+      type,
     };
 
-    const currentMessages = this.messagesSubject.getValue();
+    const currentMessages: IMessage[] = this.messagesSubject.getValue();
 
-    this.messagesSubject.next([
-      newMessage,
-      ...currentMessages
-    ])
+    this.messagesSubject.next([newMessage, ...currentMessages]);
 
     setTimeout(() => {
       this.closeMessage(newMessage.id);
@@ -53,11 +44,8 @@ export class MessageService {
   }
 
   closeMessage(id: number): void {
-    const currentMessages = this.messagesSubject.getValue();
-    const filteredMessages = currentMessages.filter(
-      message => message.id !== id
-    );
+    const currentMessages: IMessage[] = this.messagesSubject.getValue();
+    const filteredMessages: IMessage[] = currentMessages.filter((message) => message.id !== id);
     this.messagesSubject.next(filteredMessages);
   }
-
 }

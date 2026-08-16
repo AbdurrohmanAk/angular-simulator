@@ -17,21 +17,21 @@ export class UserService {
   private userSubject: BehaviorSubject<IUser[]> =
     new BehaviorSubject<IUser[]>([]);
 
-  users$ = this.userSubject.asObservable();
+  users$: Observable<IUser[]> = this.userSubject.asObservable();
 
   setUsers(users: IUser[]): void {
     this.userSubject.next(users);
   }
 
-  getUsers(): Observable<IUser[]> {
-    return this.users$;
+  getUsers(): IUser[] {
+    return this.userSubject.getValue();
   }
 
   loadUsers(): Observable<IUser[]> {
     this.loaderService.showLoader();
-    
+
     return this.userApiService.getUsers().pipe(
-      tap(users => {
+      tap((users: IUser[]) => {
         this.setUsers(users);
       }),
       catchError(() => {
